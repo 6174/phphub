@@ -1,61 +1,31 @@
+## 安装步骤
 
-## PHPHub related projects
+### 配置PHP mcrypt.so
 
-You can checkout the others open source projects of PHPHub in the following list.
+1. brew install mcrypt
+2. 到 PHP 官网下载对应的 PHP 版本
+3. tar -xvrf php-zip-file 
+4. cd php-zip-file/ext/mcrypt
+5. phpize
+6. ./configure
+7. make
+8. sudo make install
+9. 如果出现 permission 错误, 可直接找到编译好的 mcrypt.so 文件 复制到 /usr/local/bin/php/extensions/
+9. vim /etc/php.ini, 添加 extension=mcrypt.so , extension_dir=/usr/local/bin/php/extensions/
+10. composer install
 
-* [PHPHub-iOS](https://github.com/Aufree/phphub-ios) by [@Aufree](https://github.com/Aufree)
-* [PHPHub-Server](https://github.com/NauxLiu/phphub-server) by [@NauxLiu](https://github.com/NauxLiu)
-* [PHPHub-Android](https://github.com/CycloneAxe/phphub-android) by [@Kelvin](https://github.com/CycloneAxe) and [@Xiaoxiaoyu](https://github.com/xiaoxiaoyu)
-* [PHPHub-UI](https://github.com/phphub/phphub-ui) by [@Summer](https://github.com/phphub/phphub-ui) and [@Aufree](https://github.com/aufree)
-* [PHPHub-Web](https://github.com/summerblue/phphub) by [@Summer](https://github.com/phphub/phphub-ui)
 
-## Introduction
+### migrate 
+1. 修改数据库配置, localhost 改为 127.0.0.1 
+2. mysql 创建 phphub 数据库
+3. php artisan migrate (原版本会因为, timestamps字段报错, 改为 nullableTimestamps 就work)
+4. php artisan db:seed 初始化测试数据, 原版本会有一些字段没有默认值报错, 已修改
 
-PHPHub is a `Forum project` written in `Laravel4.2`, and it is also the project build up [PHP & Laravel China community](http://www.phphub.org).
 
-The [phphub.org](http://phphub.org) site is entirely open source, and community involvement is not only encouraged, but required in order to ensure the future success of the project.
+### 前端
+1. npm install (gulp-sass 原版本安装会报错, 已修改)
+2. sudo npm install gulp -g
 
- If you have any questions please don't hesitate to ask them in an issue or email me at phphub.org@gmail.com.
 
-[![Build Status](https://api.travis-ci.org/summerblue/phphub.svg?branch=master)](https://travis-ci.org/summerblue/phphub)
-
-### Screen Shots
-
-![](http://ww3.sinaimg.cn/large/6d86d850gw1ejre58qql6j21kw177tif.jpg)
-
-![](http://ww3.sinaimg.cn/large/6d86d850gw1ejre5gl0sjj21kw16z7ch.jpg)
-
-![](http://ww3.sinaimg.cn/large/6d86d850gw1ejre8frigyj20td0ma77d.jpg)
-
-## Requirements and Environment
-
-* PHP 5.4+
-* Laravel 4.2+
-
-We use Laravel Homestead for local development. Please review the [Homestead documentation](http://laravel.com/docs/homestead) to install it.
-
-[ 中文版本的本地环境部署见这里 见 wiki](https://github.com/summerblue/phphub/wiki/PHPhub-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2)
-
-[Step by Step Guide to Setting up the PHPHub Development Environment](https://github.com/summerblue/phphub/wiki/Step-by-Step-Guide-to-Setting-up-the-PHPHub-Development-Environment)
-
-## Thanks 
-
-* [Laravel.io Project](https://github.com/LaravelIO/laravel.io) 
-* [Twitter bootstrap](http://getbootstrap.com/)
-* [Laravel4](http://laravel.com/)
-* Inspiration come from [v2ex](http://v2ex.com/) & [ruby-china](https://ruby-china.org/).
-* So many other excelent open source project. :+1:.
-
-## Contributors
-
-[On the Project Contributors Page](https://github.com/summerblue/phphub/graphs/contributors)
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## License
-
-Copyright (c) 2014 PHPHub.org
-
-The MIT License (MIT). Please see [Opensource MIT License](http://www.opensource.org/licenses/MIT) for more information.
+### 启动服务
+1. php -S localhost:8888 -t public  
