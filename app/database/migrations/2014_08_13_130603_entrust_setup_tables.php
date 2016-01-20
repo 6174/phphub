@@ -16,7 +16,7 @@ class EntrustSetupTables extends Migration
         Schema::create('roles', function ($table) {
             $table->increments('id')->unsigned();
             $table->string('name')->unique();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
 
         // Creates the assigned_roles (Many-to-Many relation) table
@@ -34,7 +34,7 @@ class EntrustSetupTables extends Migration
             $table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->string('display_name');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
 
         // Creates the permission_role (Many-to-Many relation) table

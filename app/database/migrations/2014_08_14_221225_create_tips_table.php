@@ -16,7 +16,7 @@ class CreateTipsTable extends Migration
         Schema::create('tips', function (Blueprint $table) {
             $table->increments('id');
             $table->text('body');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
 
         $this->initData();

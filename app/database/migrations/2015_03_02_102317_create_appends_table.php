@@ -17,7 +17,7 @@ class CreateAppendsTable extends Migration
             $table->increments('id');
             $table->text('content');
             $table->integer('topic_id')->index();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

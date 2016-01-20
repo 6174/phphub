@@ -17,8 +17,11 @@ class PagesController extends \BaseController
     public function home()
     {
         $topics = $this->topic->getTopicsWithFilter('excellent');
+//        Log::info($topics);
+//        echo '<pre>';
+//        print_r($topics[0]);
+//        echo '</pre>';
         $nodes  = Node::allLevelUp();
-
         return View::make('pages.home', compact('topics', 'nodes'));
     }
 

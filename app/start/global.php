@@ -83,7 +83,7 @@ App::error(function (Exception $exception, $code) {
             return Response::view('errors/403', [], 403);
 
         case 500:
-            return Response::view('errors/500', [], 500);
+            return Response::view('errors/500', ['message' => $message], 500);
 
         default:
             return Response::view('errors/404', [], $code);

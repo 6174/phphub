@@ -70,4 +70,6 @@ require $framework.'/Illuminate/Foundation/start.php';
 |
 */
 
+Log::useFiles('php://stdout', 'info');
+
 return $app;

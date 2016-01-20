@@ -6,10 +6,10 @@
 
 return [
 
-    'DB_HOST'     => 'localhost',
+    'DB_HOST'     => '127.0.0.1',
     'DB_NAME'     => 'phphub',
-    'DB_USERNAME' => 'homestead',
-    'DB_PASSWORD' => 'secret',
+    'DB_USERNAME' => 'root',
+    'DB_PASSWORD' => 'root',
 
     // Github oauth
     'client_id'     => 'eefd4111fbcb0e1d0fb9',

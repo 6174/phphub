@@ -127,6 +127,7 @@ class Topic extends \Eloquent
                 return $this->orderBy('vote_count', 'desc')->recent();
                 break;
             case 'excellent':
+                Log::info('excellent filter');
                 return $this->excellent()->recent();
                 break;
             case 'recent':

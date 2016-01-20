@@ -28,7 +28,7 @@ class CreateTopicsTable extends Migration
             $table->integer('vote_count')->default(0)->index();
             $table->integer('last_reply_user_id')->default(0)->index();
             $table->softDeletes();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

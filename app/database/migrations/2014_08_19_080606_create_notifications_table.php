@@ -21,7 +21,7 @@ class CreateNotificationsTable extends Migration
             $table->integer('reply_id')->nullable()->index();
             $table->text('body')->nullable();
             $table->string('type')->index();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

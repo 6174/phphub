@@ -54,13 +54,14 @@ return array(
 
         'mysql' => array(
             'driver'    => 'mysql',
-            'host'      => getenv('DB_HOST') ?: 'localhost',
+            'host'      => getenv('DB_HOST') ?: '127.0.0.1',
             'database'  => getenv('DB_NAME') ?: 'phphub',
             'username'  => getenv('DB_USERNAME') ?: 'root',
-            'password'  => getenv('DB_PASSWORD') ?: '' ,
+            'password'  => getenv('DB_PASSWORD') ?: 'root' ,
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
+            'explicit_defaults_for_timestamp' => true
         ),
 
         'pgsql' => array(
@@ -120,5 +121,7 @@ return array(
         ),
 
     ),
+
+    'strict' => true,
 
 );

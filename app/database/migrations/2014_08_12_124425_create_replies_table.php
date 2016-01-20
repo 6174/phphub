@@ -20,7 +20,7 @@ class CreateRepliesTable extends Migration
             $table->integer('topic_id')->index();
             $table->boolean('is_block')->index()->default(false);
             $table->integer('vote_count')->index()->default(0);
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

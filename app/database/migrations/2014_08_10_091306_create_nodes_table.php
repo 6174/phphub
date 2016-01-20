@@ -20,7 +20,7 @@ class CreateNodesTable extends Migration
             $table->smallInteger('parent_node')->nullable()->index();
             $table->text('description')->nullable();
             $table->integer('topic_count')->default(0)->index();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
 
         $this->initializeNodes();

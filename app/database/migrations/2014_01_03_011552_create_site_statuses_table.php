@@ -20,7 +20,7 @@ class CreateSiteStatusesTable extends Migration
             $table->integer('topic_count')->default(0);
             $table->integer('reply_count')->default(0);
             $table->integer('image_count')->default(0);
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

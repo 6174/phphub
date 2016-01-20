@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('signature')->nullable();
             $table->string('introduction')->nullable();
             $table->softDeletes();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 
